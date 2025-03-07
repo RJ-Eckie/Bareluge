@@ -294,6 +294,12 @@ private:
 		send(colour.b);
 	}
 
+#ifdef USE_BARELUGE_FIRMWARE
+	// This is made public so bareluge firmware can write the cleanest possible code, while still making use of the
+	// original low-level code to send data to the pic
+public:
+#endif
+	// #endif
 	/**
 	 * @brief Send a byte. This was originally bufferPICUart()
 	 */

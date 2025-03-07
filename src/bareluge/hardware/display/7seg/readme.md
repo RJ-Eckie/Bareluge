@@ -1,0 +1,1 @@
+RJ: I currently don't have access to a Deluge with a 7-segment display. If you do and have the ability, please consider contributing to the repo. Donating/lending me a 7-segment display Deluge is also acceptable

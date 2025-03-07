@@ -11,6 +11,9 @@ include(FetchContent)
 include(ProcessorCount)
 ProcessorCount(HOST_NUM_CORES)
 
+# allow global including from the bareluge directories
+include_directories(${CMAKE_SOURCE_DIR}/src/bareluge)
+
 # Create our version string
 set(RELEASE_TYPE "release" CACHE STRING "The type of releasepack to build")
 set_property(CACHE RELEASE_TYPE PROPERTY STRINGS dev nightly alpha beta rc release)
@@ -187,6 +190,7 @@ add_compile_options(
     -ffunction-sections
     -fdata-sections
     -DUSE_TASK_MANAGER
+    -DUSE_BARELUGE_FIRMWARE
 
     # C++ stuff
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>

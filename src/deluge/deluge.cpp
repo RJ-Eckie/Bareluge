@@ -15,6 +15,10 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifdef USE_BARELUGE_FIRMWARE
+#include "bareluge.h"
+#endif
+
 #include "deluge.h"
 
 #include "RZA1/sdhi/inc/sdif.h"
@@ -930,6 +934,11 @@ extern "C" int32_t deluge_main(void) {
 
 	D_PRINTLN("going into main loop");
 	sdRoutineLock = false; // Allow SD routine to start happening
+
+#ifdef USE_BARELUGE_FIRMWARE
+	bareluge::Deluge::launch();
+	return 0;
+#endif
 
 #ifdef USE_TASK_MANAGER
 	registerTasks();
